@@ -1,4 +1,7 @@
-# React + TypeScript + Vite
+# My personal website
+
+Use TailwindCSS for styling.
+Use React + TypeScript + Vite.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
