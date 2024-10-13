@@ -1,0 +1,74 @@
+@import "../../../../src/theme/include.scss";
+
+$cms-colors: (
+  "light": #FFF,
+  "dark": #000730,
+  "grey": #DBE0E8,
+  "red": #FF0000,
+  "blue": #0080C3,
+  "blue-light": #EEF2F8
+);
+
+.cms-html-renderer-container {
+  width: 100%;
+
+  .headline {
+    margin: rem(8) 0;
+    background: map-get($cms-colors, 'blue-light');
+    border: rem(1) solid map_get($cms-colors, 'blue');
+    border-radius: rem(8);
+    padding: rem(24);
+
+    h4 {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      color: map_get($cms-colors, 'blue');
+      margin: 0 0 rem(12) 0;
+      font-size: rem(18);
+      font-weight: 600;
+      gap: rem(12);
+    }
+
+    p {
+      font-size: rem(14);
+      font-weight: 400;
+
+      & > b {
+        font-size: rem(14);
+        font-weight: 500;
+        color: map_get($cms-colors, 'blue');
+      }
+    }
+  }
+
+  .table {
+    margin: rem(30) 0;
+  }
+
+  ul, ol {
+    margin: 0;
+    padding: 0 0 0 rem(22);
+
+    li {
+      padding: rem(3) 0;
+      font-size: rem(14);
+    }
+  }
+
+  .separator {
+    margin: rem(16) 0 0 0;
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .cms-html-renderer-container {
+
+    .table {
+      overflow-y: scroll;
+    }
+
+  }
+}
+
