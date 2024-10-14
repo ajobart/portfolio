@@ -1,6 +1,7 @@
 import { useTheme } from "../../context/theme/themeContext";
 import Image from "../../atom/image/image";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Navbar() {
 
@@ -11,10 +12,28 @@ export default function Navbar() {
     const navigate = useNavigate();
 
     /**
+     * Effect to add background color to body with correct theme
+     */
+    useEffect(() => {
+        addBackgroundColor();
+    }, [isDarkMode]);
+
+    /**
      * Function to back to home page
      */
-    const handleBackToHome = () => {
+    function handleBackToHome() {
         navigate('/');
+    }
+
+    /**
+     * Function to add background color to body with correct theme
+     */
+    function addBackgroundColor() {
+        if (isDarkMode) {
+            document.body.style.backgroundColor = '#202023';
+    } else {
+            document.body.style.backgroundColor = '#F1E6DB';
+        }
     }
 
     return (

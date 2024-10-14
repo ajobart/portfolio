@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Image from '../../atom/image/image';
 import { useNavigate } from 'react-router-dom';
 
