@@ -103,7 +103,7 @@ export default function BlogDetail() {
                             </div>
                         </div>
                     </div>
-                    <div className="mb-6">
+                    <div className="mb-4">
                         <Image path={article.data.image.url} alt={article.data.image.alt} className="w-full h-64 object-cover rounded-lg" />
                     </div>
                     <CmsHtmlRenderer
