@@ -16,6 +16,20 @@ export default {
       animation: {
         wave: 'wave 1.5s ease-in-out infinite',
       },
+      keyframes: {
+        slideUp: {
+          '0%': { transform: 'translate(-50%, 200%)' },
+          '100%': { transform: 'translate(-50%, 0)' },
+        },
+        slideDown: {
+          '0%': { transform: 'translate(-50%, 0)' },
+          '100%': { transform: 'translate(-50%, 200%)' },
+        },
+      },
+      animation: {
+        slideUp: 'slideUp 0.5s ease-in-out',
+        slideDown: 'slideDown 0.5s ease-in-out',
+      },
       backgroundColor: {
         home: {
           light: '#F1E6DB',

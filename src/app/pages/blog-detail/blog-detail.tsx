@@ -26,9 +26,26 @@ export default function BlogDetail() {
     // Error
     const [error, setError] = useState<string | null>(null);
 
-    // Effet pour défiler vers le haut lors du montage du composant
+    // Set position of scroll to show the button
+    const [showScrollTopButton, setShowScrollTopButton] = useState(false);
+
+    // Set position of scroll to hide the button
+    const [hideScrollTopButton, setHideScrollTopButton] = useState(false);
+
+    /**
+     * Effect to show the scroll to top button when the user scrolls down
+     */
     useEffect(() => {
-        scrollToTop();
+        const handleScroll = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            // Show button after scrolling 300px
+            setShowScrollTopButton(scrollTop > 300);
+            // Hide button after scrolling 300px
+            setHideScrollTopButton(scrollTop < 300);
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     /**
@@ -111,8 +128,13 @@ export default function BlogDetail() {
                         headline={article.data.headline}
                         colorTitle={isDarkMode ? 'light' : 'dark'}
                     />
+                    {showScrollTopButton && (
+                        <div className={`text-sm font-regular p-4 box-border h-8 w-fit backdrop-blur-md bg-white/10 border border-gray-50/20 rounded-full flex items-center justify-center cursor-pointer fixed bottom-4 left-1/2 -translate-x-1/2 ${hideScrollTopButton ? 'animate-slideDown' : 'animate-slideUp'}`} onClick={() => scrollToTop()}>
+                            Go top
+                        </div>
+                    )}
                 </article>
-                <div className="absolute h-full top-[215px] right-[48px]">
+                <div className="absolute h-fit top-[215px] right-[48px]">
                     <div className="sticky top-[78px] self-start">
                         <TableOfContent body={article.data.body} />
                     </div>
