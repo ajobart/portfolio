@@ -13,6 +13,20 @@ const CmsHtmlRenderer: React.FC<CmsHtmlRendererProps> = ({ data, headline, color
     // List of generated ids
     const listGenerateId: string[] = [];
 
+    const sanitizeOptions = {ADD_ATTR: ['target', 'rel'],};
+
+    const addRelNoopener = (html: string) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const links = doc.querySelectorAll('a[target="_blank"]');
+    
+        links.forEach((link) => {
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    
+        return doc.body.innerHTML;
+    };
+
     /**
      * Function to generate an id
      * @param text 
@@ -38,26 +52,6 @@ const CmsHtmlRenderer: React.FC<CmsHtmlRendererProps> = ({ data, headline, color
             const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
             window.scrollTo({ top: y, behavior: 'smooth' });
         }
-    };
-
-    /**
-     * Function to check if the text is a table
-     * @param text 
-     * @returns 
-     */
-    const isTable = (text: string | undefined): boolean => {
-        return text !== undefined && [
-            "[tableau-1]",
-            "[tableau-2]",
-            "[tableau-3]",
-            "[tableau-4]",
-            "[tableau-5]",
-            "[tableau-6]",
-            "[tableau-7]",
-            "[tableau-8]",
-            "[tableau-9]",
-            "[tableau-10]",
-        ].includes(text.trim());
     };
 
     /**
@@ -125,7 +119,9 @@ const CmsHtmlRenderer: React.FC<CmsHtmlRendererProps> = ({ data, headline, color
                     );
                 }
                 // Render a regular paragraph
-                return <p key={index} className="mb-4 text-sm" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(d.text || '') }} />;
+                const sanitizedHtml = DOMPurify.sanitize(d.text || '', sanitizeOptions);
+                const processedHtml = addRelNoopener(sanitizedHtml);
+                return (<p key={index} className="mb-4 text-sm"dangerouslySetInnerHTML={{ __html: processedHtml }}/>)
             case 'image':
                 return <img key={index} src={d.url} alt={d.alt} className="w-auto h-auto rounded-lg my-4" />;
             case 'list-item':

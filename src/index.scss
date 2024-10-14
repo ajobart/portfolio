@@ -6,6 +6,11 @@
 html, body, #root {
     height: 100%;
 
+    .blue-link {
+        color: #0EB1D2;
+        text-decoration: underline;
+    }
+
     .flex-list:after {
       content: "";
       flex: auto;
