@@ -28,10 +28,9 @@ export default function Home() {
         try {
             const data = await CmsService.getCardBlogData();
             setCardsBlogList(data);
-            console.log(data);
-          } catch (error) {
+        } catch (error) {
             console.error('Error fetching card blog data:', error);
-          }
+        }
     }
 
     return (

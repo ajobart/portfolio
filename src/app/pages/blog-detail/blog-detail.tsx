@@ -7,6 +7,7 @@ import { useTheme } from "../../context/theme/themeContext";
 import Image from "../../atom/image/image";
 import CmsHtmlRenderer from "../../atom/cms-html-renderer/cms-html-renderer";
 import { formatDate, scrollToTop } from "../../../services/helper.service";
+import TableOfContent from "../../molecules/table-of-content/table-of-content";
 
 export default function BlogDetail() {
 
@@ -72,7 +73,7 @@ export default function BlogDetail() {
                         </a>
                     </div>
                     <div className="flex mt-[120px] items-center justify-center w-full h-full">
-                        <Image path="/icons/loader-light.svg" className="size-[38px]" />
+                        <Image path={isDarkMode ? '/icons/loader-light.svg' : '/icons/loader-dark.svg'} className="size-[38px]" />
                     </div>
                 </main>
             </div>
@@ -86,7 +87,7 @@ export default function BlogDetail() {
     return (
         <div className={`relative w-full min-h-screen flex flex-col ${isDarkMode ? 'dark bg-home-dark text-primary-dark' : 'bg-home-light text-primary-light'}`}>
             <Navbar />
-            <main className="mt-[64px] w-full flex flex-col px-4 md:px-8 lg:px-16 xl:px-[246px] box-border">
+            <div className="mt-[64px] w-full flex flex-col px-4 md:px-8 px-8 mx-auto max-w-4xl box-border">
                 <div className="top-4 left-0 mt-4">
                     <a className="bg-transparent border-none flex items-center gap-2" href="/">
                         <Image path={isDarkMode ? '/icons/left-arrow-light.svg' : '/icons/left-arrow-dark.svg'} className="size-[14px]" />
@@ -111,7 +112,12 @@ export default function BlogDetail() {
                         colorTitle={isDarkMode ? 'light' : 'dark'}
                     />
                 </article>
-            </main>
+                <div className="absolute h-full top-[215px] right-[48px]">
+                    <div className="sticky top-[78px] self-start">
+                        <TableOfContent body={article.data.body} />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { CmsDataType, CmsHeadlineType } from '../../types/cms.types';
 import DOMPurify from 'dompurify';
+import { generateHeaderId } from '../../../services/helper.service';
 
 interface CmsHtmlRendererProps {
     data: CmsDataType[];
@@ -89,18 +90,18 @@ const CmsHtmlRenderer: React.FC<CmsHtmlRendererProps> = ({ data, headline, color
 
     /**
      * Function to render the content
-     * @param d 
+     * @param d
      * @param index 
      * @returns 
      */
     const renderContent = (d: CmsDataType, index: number) => {
         switch (d.type) {
             case 'heading4':
-                return <h4 key={index} className={`text-lg font-semibold text-${colorTitle} mb-2`}>{d.text}</h4>;
+                return <h4 id={generateHeaderId(d.text)} key={index} className={`text-lg font-semibold text-${colorTitle} mb-2`}>{d.text}</h4>;
             case 'heading3':
-                return <h3 key={index} className={`text-xl font-semibold text-${colorTitle} mb-3`}>{d.text}</h3>;
+                return <h3 id={generateHeaderId(d.text)} key={index} className={`text-xl font-semibold text-${colorTitle} mb-3`}>{d.text}</h3>;
             case 'heading2':
-                return <h2 key={index} id={d.id} className={`text-2xl font-semibold text-${colorTitle} mb-4`}>{d.text}</h2>;
+                return <h2 id={generateHeaderId(d.text)} key={index} className={`text-2xl font-semibold text-${colorTitle} mb-4`}>{d.text}</h2>;
             case 'paragraph':
                 // Check if the paragraph is a special headline
                 if (isHeadline(d.text)) {

@@ -17,3 +17,12 @@ export const scrollToTop = () => {
         behavior: 'smooth'
     });
 }
+
+/**
+ * Function to generate an id
+ * @param text - Text to generate id
+ * @returns The generated id
+ */
+export const generateHeaderId = (text: string) => {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+}
