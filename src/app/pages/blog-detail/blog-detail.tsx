@@ -6,6 +6,7 @@ import Navbar from "../../molecules/navbar/navbar";
 import { useTheme } from "../../context/theme/themeContext";
 import Image from "../../atom/image/image";
 import CmsHtmlRenderer from "../../atom/cms-html-renderer/cms-html-renderer";
+import { formatDate, scrollToTop } from "../../../services/helper.service";
 
 export default function BlogDetail() {
 
@@ -24,6 +25,11 @@ export default function BlogDetail() {
     // Error
     const [error, setError] = useState<string | null>(null);
 
+    // Effet pour défiler vers le haut lors du montage du composant
+    useEffect(() => {
+        scrollToTop();
+    }, []);
+
     /**
      * Effect to fetch the article
      */
@@ -36,7 +42,6 @@ export default function BlogDetail() {
                 const fetchedArticle = await CmsService.getArticleData(slug);
                 if (fetchedArticle) {
                     setArticle(fetchedArticle);
-                    console.log(fetchedArticle);
                 } else {
                     setError("Article not found");
                 }
@@ -51,12 +56,27 @@ export default function BlogDetail() {
         fetchArticle();
     }, [slug]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
     if (error) {
         return <div>{error}</div>;
+    }
+
+    if (loading) {
+        return (
+            <div className={`relative w-full min-h-screen flex flex-col ${isDarkMode ? 'dark bg-home-dark text-primary-dark' : 'bg-home-light text-primary-light'}`}>
+                <Navbar />
+                <main className="mt-[64px] w-full h-full flex flex-col px-4 md:px-8 lg:px-16 xl:px-[246px] box-border">
+                    <div className="top-4 left-0 mt-4 h-full">
+                        <a className="bg-transparent border-none flex items-center gap-2" href="/">
+                            <Image path={isDarkMode ? '/icons/left-arrow-light.svg' : '/icons/left-arrow-dark.svg'} className="size-[14px]" />
+                            Back
+                        </a>
+                    </div>
+                    <div className="flex mt-[120px] items-center justify-center w-full h-full">
+                        <Image path="/icons/loader-light.svg" className="size-[38px]" />
+                    </div>
+                </main>
+            </div>
+        );
     }
 
     if (!article) {
@@ -67,12 +87,18 @@ export default function BlogDetail() {
         <div className={`relative w-full min-h-screen flex flex-col ${isDarkMode ? 'dark bg-home-dark text-primary-dark' : 'bg-home-light text-primary-light'}`}>
             <Navbar />
             <main className="mt-[64px] w-full flex flex-col px-4 md:px-8 lg:px-16 xl:px-[246px] box-border">
+                <div className="top-4 left-0 mt-4">
+                    <a className="bg-transparent border-none flex items-center gap-2" href="/">
+                        <Image path={isDarkMode ? '/icons/left-arrow-light.svg' : '/icons/left-arrow-dark.svg'} className="size-[14px]" />
+                        Back
+                    </a>
+                </div>
                 <article className="py-8">
                     <div className="mb-4 flex flex-col gap-2">
                         <h1 className="text-4xl font-bold">{article.data.title}</h1>
                         <div className="flex flex-row">
                             <div className="flex flex-col">
-                                <p className="text-sm font-regular dark:text-portfolio-gray">{article.data.published_at}</p>
+                                <p className="text-sm font-regular dark:text-portfolio-gray">{formatDate(article.data.published_at)} • {article.data.read_time} min read</p>
                             </div>
                         </div>
                     </div>

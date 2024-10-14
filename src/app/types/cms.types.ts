@@ -43,6 +43,7 @@ export interface CmsArticleType {
     data: {
       title: string;
       summary: string;
+      read_time: string;
       metadata_title: string;
       metadata_description: string;
       author: Array<CmsDataType>;

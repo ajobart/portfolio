@@ -18,9 +18,9 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="border-b z-50 backdrop-blur-xl fixed top-0 border-b-gray-50/20 w-full h-[64px] flex items-center justify-between px-[246px]">
+        <nav className={`border-b z-50 ${isDarkMode ? '' : 'bg-home-navbarContrast/40'} backdrop-blur-md fixed top-0 border-b-gray-50/20 w-full h-[64px] flex items-center justify-between px-[246px]`}>
             <div className="font-medium cursor-pointer" onClick={handleBackToHome}>
-                AlexBld
+                A_J
             </div>
             <div className="flex items-center gap-4">
                 <ul className="flex items-center gap-4">

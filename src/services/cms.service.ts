@@ -28,6 +28,7 @@ export class CmsService {
       data: {
         title: article.data.title,
         summary: article.data.summary,
+        read_time: article.data.read_time,
         metadata_title: article.data.metadata_title || '',
         metadata_description: article.data.metadata_description || '',
         author: article.data.author,

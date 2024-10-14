@@ -18,8 +18,10 @@ export default {
       },
       backgroundColor: {
         home: {
-          light: '##F1E6DB',
+          light: '#F1E6DB',
           dark: '#202023',
+          //navbarContrast: '#F3EDE5',
+          navbarContrast: '#ffffff40',
         },
       },
       colors: {
