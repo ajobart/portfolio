@@ -18,6 +18,7 @@ interface CardBlogProps {
 
 const CardBlog: FC<CardBlogProps> = ({slug = '', title = '', description = '', image = ''}) => {
 
+    // Navigate
     const navigate = useNavigate();
 
     /**
@@ -25,6 +26,18 @@ const CardBlog: FC<CardBlogProps> = ({slug = '', title = '', description = '', i
      */
     function handleNavigate() {
         navigate(`/blog/${slug}`);
+    }
+
+    /**
+     * Function to cut the description to 150 characters replacing by "..."
+     * @param description - Description to cut
+     * @returns - Description cut to 150 characters
+     */
+    function cutDescription(description: string) {
+        if (description.length > 150) {
+            return description.substring(0, 150) + '...';
+        }
+        return description;
     }
 
     return (
@@ -41,7 +54,7 @@ const CardBlog: FC<CardBlogProps> = ({slug = '', title = '', description = '', i
                     <h3 className='font-bold text-xl'>{title}</h3>
                 </div>
                 <div>
-                    <p className='font-normal text-sm'>{description}</p>
+                    <p className='font-normal text-sm'>{cutDescription(description)}</p>
                 </div>
             </div>
         </div>
