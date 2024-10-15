@@ -2,6 +2,10 @@ import React from 'react';
 import { CmsDataType, CmsHeadlineType } from '../../types/cms.types';
 import DOMPurify from 'dompurify';
 import { generateHeaderId } from '../../../services/helper.service';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { useTheme } from "../../context/theme/themeContext";
 
 interface CmsHtmlRendererProps {
     data: CmsDataType[];
@@ -10,6 +14,9 @@ interface CmsHtmlRendererProps {
 }
 
 const CmsHtmlRenderer: React.FC<CmsHtmlRendererProps> = ({ data, headline, colorTitle = 'dark' }) => {
+
+    // Theme
+    const { isDarkMode } = useTheme();
 
     // List of generated ids
     const listGenerateId: string[] = [];
@@ -96,6 +103,34 @@ const CmsHtmlRenderer: React.FC<CmsHtmlRendererProps> = ({ data, headline, color
      */
     const renderContent = (d: CmsDataType, index: number) => {
         switch (d.type) {
+            case 'preformatted':
+                // Detect the language in the text (e.g. 'Javascript')
+                const languageMatch = d.text.match(/```(\w+)/);
+
+                // 'javascript' by default if no language is specified
+                const language = languageMatch ? languageMatch[1] : 'javascript';
+
+                // Remove the '```lang' and the following text from the codeprogress status block
+                const codeText = d.text.replace(/```(\w+)\n?/, '');
+                return (
+                    
+                    <SyntaxHighlighter
+                        language={language}
+                        // Style Prism test : https://react-syntax-highlighter.github.io/react-syntax-highlighter/demo/prism.html
+                        style={isDarkMode ? darcula : prism}
+                        showLineNumbers={true}
+                        customStyle={{
+                            borderColor:'rgba(75, 85, 99, .2)',
+                            padding: '12px',
+                            borderWidth: '1px',
+                            borderRadius: '8px',
+                            fontSize: '12px',
+                            lineHeight: '1.4',
+                        }}
+                    >
+                        {codeText}
+                    </SyntaxHighlighter>
+                );
             case 'heading4':
                 return <h4 id={generateHeaderId(d.text)} key={index} className={`text-lg font-semibold text-${colorTitle} mb-2`}>{d.text}</h4>;
             case 'heading3':

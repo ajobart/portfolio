@@ -5,6 +5,7 @@ import CardBlog from "../../molecules/card-blog/card-blog";
 import { CmsService } from "../../../services/cms.service";
 import { CardBlogItem } from "../../types/cardBlog.types";
 import Image from "../../atom/image/image";
+import Footer from "../../molecules/footer/footer";
 
 export default function Home() {
 
@@ -44,7 +45,7 @@ export default function Home() {
                             <div className="flex items-end gap-2">
                                 <h1 className="text-4xl font-bold">Hi,</h1>
                                 <h1 className="text-5xl font-bold animate-wave">👋🏻</h1>
-                            </div>                            
+                            </div>
                             <h1 className="text-4xl font-bold">I'm a french fullstack developer.</h1>
                             <p className="text-m font-medium">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore facere repudiandae hic doloremque, sint debitis mollitia dicta, impedit asperiores ex non magni laboriosam ipsa illum voluptatum commodi in ducimus laborum.</p>
                         </div>
@@ -58,10 +59,11 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="h-[120px] w-full">
+                    <div className="h-fit w-full mb-4">
                         <div className="flex flex-col items-start justify-start">
                             <h1 className="text-2xl font-bold">About</h1>
-                            <p className="text-m font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita ab veniam quos rem consectetur minima adipisci sequi dolore, ullam ducimus, provident culpa quis repudiandae, possimus dignissimos deleniti perspiciatis officiis laborum.</p>
+                            <p className="text-base font-normal">I grew up in the Normandy region of France, where I pursued business studies and obtained a Bachelor's degree. During my studies, I started coding websites in my spare time, which quickly became a passion. After graduating, I decided to follow what I truly love and enrolled in the "Le Wagon" bootcamp in Paris, where I perfected my development skills.</p>
+                            <p className="text-base mt-2 font-normal">For the past three years, I've been based in Paris and have been making a living as a developer. I currently collaborate with the talented team at the FORKEYS agency, where I continue to grow and evolve in my craft.</p>
                         </div>
                         <div>
 
@@ -82,18 +84,18 @@ export default function Home() {
                                     <li className="w-[288px] h-[340px]" key={index}>
                                         <CardBlog slug={item.slug} title={item.title} image={item.image} description={item.summary}></CardBlog>
                                     </li>
-                            ))} 
+                                ))}
                             </ul>
                         </div>
                     </div>
                     <div className="h-[520px] mb-[24px] rounded-xl w-full bg-[radial-gradient(100%_100%_at_50%_0%,_rgba(0,0,0,0.00)_0%,_rgba(0,0,0,0.00)_55%,_rgba(136,42,255,0.3)_66%,_rgba(162,88,255,_0.7)_80%,_#E0C8FF_100%)]">
-                        Home test
                         <h1 className="bg-gradient-to-r from-[rgba(255,_255,_255,_0.40)] via-[#fff] to-[rgba(255,_255,_255,_0.40)] bg-clip-text text-center text-xl font-medium !leading-normal text-transparent xs:text-2xl sm:text-4xl md:text-5xl lg:text-[56px]">
                             Hello World Little Test
                         </h1>
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

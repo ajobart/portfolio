@@ -28,6 +28,7 @@ export default {
       },
       backgroundColor: {
         home: {
+          // light: '#F4F4F5',
           light: '#F1E6DB',
           dark: '#202023',
           //navbarContrast: '#F3EDE5',
@@ -37,6 +38,8 @@ export default {
       colors: {
         'portfolio-gray': '#D4D4D8',
         'portfolio-blue': '#4E80EE',
+        'portfolio-blue-two': '#0090FF',
+        'table-of-content': '#F0F1F3',
       },
       textColor: {
         primary: {

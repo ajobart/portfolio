@@ -73,7 +73,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({ body }) => {
                         return (
                             <li
                                 key={index}
-                                className={`py-2 ${isActive ? 'border-blue-500 text-blue-500' : 'dark:border-gray-300 border-white'} cursor-pointer text-sm font-regular hover:text-blue-500 pl-4 box-border border-l-2`}
+                                className={`py-2 ${isActive ? 'border-blue-500 text-blue-500' : 'dark:border-gray-300 border-table-of-content'} cursor-pointer text-sm font-regular hover:text-blue-500 pl-4 box-border border-l-2`}
                                 onClick={() => scrollToHeading(id)}
                             >
                                 <span className={`${heading.type === 'heading3' ? 'ml-4' : ''}`}>{heading.text}</span>
