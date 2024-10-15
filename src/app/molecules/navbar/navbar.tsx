@@ -48,7 +48,7 @@ export default function Navbar() {
                 </ul>
                 <button
                     onClick={toggleTheme}
-                    className="p-2 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all duration-300"
+                    className="p-2 rounded-lg bg-portfolio-blue/50 dark:bg-portfolio-blue/50 hover:bg-portfolio-blue/80 dark:hover:bg-portfolio-blue/80 transition-all duration-300"
                 >
                     {isDarkMode ? <Image path="/icons/light-mode.svg" alt="sun" className="size-4" /> : <Image path="/icons/dark-mode.svg" alt="moon" className="size-4" />}
                 </button>

@@ -152,7 +152,7 @@ export default function BlogDetail() {
                         </div>
                     )}
                 </article>
-                <div className="absolute h-full top-[215px] right-[48px]">
+                <div className="absolute h-full top-[215px] right-[65px]">
                     <div className="sticky top-[78px] self-start">
                         <TableOfContent body={article.data.body} />
                     </div>

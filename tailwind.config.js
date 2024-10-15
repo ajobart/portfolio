@@ -36,6 +36,7 @@ export default {
       },
       colors: {
         'portfolio-gray': '#D4D4D8',
+        'portfolio-blue': '#4E80EE',
       },
       textColor: {
         primary: {
