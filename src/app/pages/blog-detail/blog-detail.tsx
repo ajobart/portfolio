@@ -29,8 +29,8 @@ export default function BlogDetail() {
     // Set position of scroll to show the button
     const [showScrollTopButton, setShowScrollTopButton] = useState(false);
 
-    // Set position of scroll to hide the button
-    const [hideScrollTopButton, setHideScrollTopButton] = useState(false);
+    // State to keep button visible during the animation
+    const [isVisible, setIsVisible] = useState(false);
 
     /**
      * Effect to show the scroll to top button when the user scrolls down
@@ -38,15 +38,29 @@ export default function BlogDetail() {
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            // Show button after scrolling 300px
-            setShowScrollTopButton(scrollTop > 300);
-            // Hide button after scrolling 300px
-            setHideScrollTopButton(scrollTop < 300);
+
+            if (scrollTop > 300) {
+                setShowScrollTopButton(true);
+                setIsVisible(true);
+            } else {
+                setShowScrollTopButton(false);
+            }
         };
-    
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    /**
+     * Effect to handle visibility transition (wait for animation)
+     */
+    useEffect(() => {
+        if (!showScrollTopButton) {
+            // Wait for the slideDown animation (500ms)
+            const timer = setTimeout(() => setIsVisible(false), 500);
+            return () => clearTimeout(timer);
+        }
+    }, [showScrollTopButton]);
 
     /**
      * Effect to fetch the article
@@ -128,13 +142,17 @@ export default function BlogDetail() {
                         headline={article.data.headline}
                         colorTitle={isDarkMode ? 'light' : 'dark'}
                     />
-                    {showScrollTopButton && (
-                        <div className={`text-sm font-regular p-4 box-border h-8 w-fit backdrop-blur-md bg-white/10 border border-gray-50/20 rounded-full flex items-center justify-center cursor-pointer fixed bottom-4 left-1/2 -translate-x-1/2 ${hideScrollTopButton ? 'animate-slideDown' : 'animate-slideUp'}`} onClick={() => scrollToTop()}>
+                    {isVisible && (
+                        <div
+                            className={`text-sm font-regular p-4 box-border h-8 w-fit backdrop-blur-md dark:bg-white/10 bg-black/10 dark:hover:bg-white/30 hover:bg-gray-500/30 ease-in-out duration-500 border border-gray-50/20 rounded-full flex items-center justify-center cursor-pointer fixed bottom-4 left-1/2 -translate-x-1/2 
+                            ${showScrollTopButton ? 'animate-slideUp' : 'animate-slideDown'}`}
+                            onClick={() => scrollToTop()}
+                        >
                             Go top
                         </div>
                     )}
                 </article>
-                <div className="absolute h-fit top-[215px] right-[48px]">
+                <div className="absolute h-full top-[215px] right-[48px]">
                     <div className="sticky top-[78px] self-start">
                         <TableOfContent body={article.data.body} />
                     </div>
