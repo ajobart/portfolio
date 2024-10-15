@@ -156,7 +156,7 @@ export default function BlogDetail() {
                         Back
                     </a>
                 </div>
-                <article className="py-8" ref={articleRef}>
+                <article className="pb-8 pt-4" ref={articleRef}>
                     <div className="mb-4 flex flex-col gap-2">
                         <h1 className="text-4xl font-bold">{article.data.title}</h1>
                         <div className="flex flex-row">

@@ -3,13 +3,23 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+@layer components {
+  .btn-primary {
+    @apply cursor-pointer hover:bg-portfolio-blue-light-hover transition ease-in-out duration-500 w-fit h-fit p-2 box-border rounded-xl bg-portfolio-blue-light text-xs text-white;
+  }
+
+}
+
 html, body, #root {
     height: 100%;
 
     .blue-link {
-        //color: #0EB1D2;
-        color: #4E80EE;
+        color: #0D74CE;
         text-decoration: underline;
+    }
+
+    .dark .blue-link {
+      color: #70B8FF;
     }
 
     .flex-list:after {

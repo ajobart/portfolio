@@ -28,8 +28,8 @@ export default {
       },
       backgroundColor: {
         home: {
-          // light: '#F4F4F5',
-          light: '#F1E6DB',
+          light: '#F4F4F5',
+          //light: '#F1E6DB',
           dark: '#202023',
           //navbarContrast: '#F3EDE5',
           navbarContrast: '#ffffff40',
@@ -37,8 +37,13 @@ export default {
       },
       colors: {
         'portfolio-gray': '#D4D4D8',
-        'portfolio-blue': '#4E80EE',
-        'portfolio-blue-two': '#0090FF',
+        'navbar-theme-btn': '#0090FF',
+        'navbar-theme-btn-hover': '#0588F0',
+        'navbar-theme-btn-dark-hover': '#3B9EFF',
+        'portfolio-blue-light': '#0090FF',
+        'portfolio-blue-light-hover': '#3B9EFF',
+        'portfolio-blue-dark': '#0090FF',
+        'portfolio-blue-dark-hover': '#0D74CE',
         'table-of-content': '#F0F1F3',
       },
       textColor: {

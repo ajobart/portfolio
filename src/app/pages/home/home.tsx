@@ -48,6 +48,26 @@ export default function Home() {
                             </div>
                             <h1 className="text-4xl font-bold">I'm a french fullstack developer.</h1>
                             <p className="text-m font-medium">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore facere repudiandae hic doloremque, sint debitis mollitia dicta, impedit asperiores ex non magni laboriosam ipsa illum voluptatum commodi in ducimus laborum.</p>
+                            <ul className="flex gap-2 mt-4">
+                                <li>
+                                    <a className="btn-primary flex gap-1">
+                                        <Image path="/icons/linkedin-logo-light.svg" className="size-4"></Image>
+                                        Linkedin
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="btn-primary flex gap-1">
+                                            <Image path="/icons/github-logo-light.svg" className="size-4"></Image>
+                                            Github
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="btn-primary flex gap-1">
+                                            <Image path="/icons/gitlab-logo-light.svg" className="size-4"></Image>
+                                            Gitlab
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                         <div className="h-full w-full flex items-center justify-center">
                             <div className="relative flex items-center justify-center h-full w-full">

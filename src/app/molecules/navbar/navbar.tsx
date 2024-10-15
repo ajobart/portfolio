@@ -32,7 +32,7 @@ export default function Navbar() {
         if (isDarkMode) {
             document.body.style.backgroundColor = '#202023';
     } else {
-            document.body.style.backgroundColor = '#F1E6DB';
+            document.body.style.backgroundColor = '#F4F4F5';
         }
     }
 
@@ -48,7 +48,7 @@ export default function Navbar() {
                 </ul>
                 <button
                     onClick={toggleTheme}
-                    className="p-2 rounded-full bg-portfolio-blue/50 dark:bg-portfolio-blue/50 hover:bg-portfolio-blue/80 dark:hover:bg-portfolio-blue/80 transition-all duration-300"
+                    className="p-2 rounded-full bg-navbar-theme-btn dark:bg-navbar-theme-btn hover:bg-navbar-theme-btn-hover dark:hover:bg-navbar-theme-btn-dark-hover transition-all duration-300"
                 >
                     {isDarkMode ? <Image path="/icons/light-mode.svg" alt="sun" className="size-4" /> : <Image path="/icons/dark-mode.svg" alt="moon" className="size-4" />}
                 </button>
