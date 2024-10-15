@@ -61,7 +61,7 @@ export default function Home() {
                     <div className="h-[120px] w-full">
                         <div className="flex flex-col items-start justify-start">
                             <h1 className="text-2xl font-bold">About</h1>
-                            <p className="text-m font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita ab veniam quos rem consectetur minima adipisci sequi dolore, ullam ducimus, provident culpa quis repudiandae, possimus dignissimos deleniti perspiciatis officiis laborum.</p>
+                            <p className="text-m font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita ab veniam quos rem consectetur minima adipisci sequi dolore, ullam ducimus, provident culpa quis repudiandae, possimus dignissimos deleniti perspiciatis officiis laborum.</p>
                         </div>
                         <div>
 
@@ -91,39 +91,6 @@ export default function Home() {
                         <h1 className="bg-gradient-to-r from-[rgba(255,_255,_255,_0.40)] via-[#fff] to-[rgba(255,_255,_255,_0.40)] bg-clip-text text-center text-xl font-medium !leading-normal text-transparent xs:text-2xl sm:text-4xl md:text-5xl lg:text-[56px]">
                             Hello World Little Test
                         </h1>
-                    </div>
-                    <div className="h-[120px] w-full bg-green-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-yellow-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-purple-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-orange-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-pink-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-red-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-red-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-red-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-red-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-red-500">
-                        Home test
-                    </div>
-                    <div className="h-[120px] w-full bg-red-500">
-                        Home test
                     </div>
                 </div>
             </div>
