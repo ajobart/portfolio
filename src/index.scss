@@ -8,6 +8,21 @@
     @apply cursor-pointer dark:hover:bg-portfolio-blue-light-hover hover:bg-portfolio-blue-dark-hover transition ease-in-out duration-500 w-fit h-fit p-2 box-border rounded-xl bg-portfolio-blue-light text-xs text-white;
   }
 
+  .herobanner-glow {
+    @apply size-[300px] rounded-full;
+    box-shadow: inset 0 0 50px #fff,
+                inset 20px 0 80px #0090ff,
+                inset -20px 0 80px #0ff,
+                inset 20px 0 300px #0090ff,
+                inset -20px 0 300px #0ff,
+                0 0 50px #fff,
+                -10px 0 80px #0090ff,
+                10px 0 80px #0ff;
+  }
+
+  .grid-background {
+    @apply dark:bg-grid-darkmode bg-grid-lightmode bg-repeat
+  }
 }
 
 html, body, #root {
