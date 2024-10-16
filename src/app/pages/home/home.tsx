@@ -40,14 +40,15 @@ export default function Home() {
             <div className="grid-background mt-[64px] w-full flex flex-col px-[246px] box-border text-primary-light bg-home-light dark:bg-home-dark dark:text-primary-dark overflow-scroll">
                 <div className="w-full h-full">
                     {/* SECTION HEROBANNER */}
-                    <div className="h-[580px] w-full flex items-center justify-between">
+                    <div className="h-[calc(100vh-64px)] w-full flex items-center justify-between">
+                        {/* LEFT PART TEXT */}
                         <div className="h-full w-full flex flex-col items-start justify-center">
                             <div className="flex items-end gap-2">
                                 <h1 className="text-4xl font-bold">Hi,</h1>
                                 <h1 className="text-5xl font-bold animate-wave">👋🏻</h1>
                             </div>
-                            <h1 className="text-4xl font-bold">I'm Alexis Jobart a french fullstack developer.</h1>
-                            <p className="text-m font-medium">Love keep learning, clean design and create things.</p>
+                            <h1 className="text-4xl mt-2 font-bold">I'm Alexis Jobart a french fullstack developer.</h1>
+                            <p className="text-m mt-2 font-normal">Love keep learning, clean design and create things.</p>
                             <ul className="flex gap-2 mt-4">
                                 <li>
                                     <a href="https://www.linkedin.com/in/alexis-jobart-9340a516b/" target="_blank" className="btn-primary flex gap-1">
@@ -69,17 +70,13 @@ export default function Home() {
                                 </li>
                             </ul>
                         </div>
+                        {/* RIGHT PART MEMOJI */}
                         <div className="h-full w-full flex items-center justify-center">
                             <div className="relative flex items-center justify-center h-full w-full">
-                                {/* <div className="absolute z-[40] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-fit backdrop-blur-xl rounded-full overflow-hidden border-2 border-gray-500/20">
-                                    <Image path="/images/alexis-memoji.png" alt="hand" className="size-[260px]" />
-                                </div> */}
-                                {/* <div className="size-[180px] z-[2] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500">
-                                </div> */}
                                 <div className="absolute z-[40] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-fit">
                                     <Image path="/images/alexis-memoji.png" alt="hand" className="size-[260px]" />
                                 </div>
-                                <div className="herobanner-glow z-[2] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                <div className="dark:herobanner-glow-dark herobanner-glow-light z-[2] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                 </div>
                             </div>
                         </div>
@@ -95,40 +92,110 @@ export default function Home() {
                         </div>
                     </div> */}
                     {/* SECTION ABOUT */}
-                    <div className="h-fit w-full flex flex-col items-center justify-center mb-20 mt-20 gap-8">
+                    <div className="h-fit w-full flex flex-col items-center justify-center mb-20 gap-12">
                         <h1 className="text-4xl font-bold">ABOUT</h1>
-                        <div className="flex gap-4">
-                            {/* CARD */}
-                            <div className="w-full">
-                                <div className="h-fit w-full rounded-lg p-4 box-border backdrop-blur-md dark:bg-white/10 bg-[#D5EFFF] border border-gray-50/20">
-                                    <ul className="flex flex-row items-center justify-between">
-                                        <li className="flex flex-col items-center justify-center gap-1">
-                                            <p className="font-bold dark:text-portfolio-blue-dark text-portfolio-blue-light text-xl">3+</p>
-                                            <p className="font-medium text-white text-lg">YEARS EXP+</p>
+                        <div className="flex gap-12">
+                            {/* LEFT PART */}
+                            <div className="relative w-full flex flex-col gap-4">
+                                {/* Skills section */}
+                                <div className="flex flex-col gap-8 rounded-lg py-2 px-4 box-border backdrop-blur-md dark:bg-white/10 bg-white/10 border border-gray-50/20">
+                                    {/* Skills header */}
+                                    <div className="flex flex-row gap-2 items-center justify-center">
+                                        <p className="w-fit font-bold text-lg">Skills</p>
+                                        <div className="w-full h-[2px] bg-portfolio-blue-light dark:portfolio-blue-dark"></div>
+                                    </div>
+                                    {/* Skills list */}
+                                    <ul className="flex items-start justify-between gap-4">
+                                        {/* Design */}
+                                        <li className="flex flex-col gap-4">
+                                            <p className="font-bold text-base">Design</p>
+                                            <ul className="flex flex-col gap-2">
+                                                <li className="flex items-center gap-1">
+                                                    <Image className="size-[14px]" path={isDarkMode ? '/icons/figma-light.svg' : '/icons/figma-dark.svg'}></Image>
+                                                    <p className="font-normal text-sm">figma</p>
+                                                </li>
+                                                <li>
+                                                    <p className="font-normal text-sm">tailwind</p>
+                                                </li>
+                                            </ul>
                                         </li>
-                                        <li className="flex flex-col items-center justify-center gap-1">
-                                            <p className="font-bold dark:text-portfolio-blue-dark text-portfolio-blue-light text-xl">7+</p>
-                                            <p className="font-medium text-white text-lg">MISSIONS FINISHED</p>
+                                        <li className="flex flex-col gap-4">
+                                            {/* Front-end */}
+                                            <p className="font-bold text-base">Front-end</p>
+                                            <ul className="flex flex-col gap-2">
+                                                <li>
+                                                    <p className="font-normal text-sm">typescript</p>
+                                                </li>
+                                                <li>
+                                                    <p className="font-normal text-sm">react</p>
+                                                </li>
+                                                <li>
+                                                    <p className="font-normal text-sm">angular</p>
+                                                </li>
+                                                <li>
+                                                    <p className="font-normal text-sm">three.js</p>
+                                                </li>
+                                            </ul>
                                         </li>
-                                        <li className="flex flex-col items-center justify-center gap-1">
-                                            <p className="font-bold dark:text-portfolio-blue-dark text-portfolio-blue-light text-xl">3+</p>
-                                            <p className="font-medium text-white text-lg">YEARS EXP</p>
+                                        <li className="flex flex-col gap-4">
+                                            {/* Back-end */}
+                                            <p className="font-bold text-base">Back-end</p>
+                                            <ul className="flex flex-col gap-2">
+                                                <li>
+                                                    <p className="font-normal text-sm">node.js</p>
+                                                </li>
+                                                <li>
+                                                    <p className="font-normal text-sm">mySQL</p>
+                                                </li>
+                                                <li>
+                                                    <p className="font-normal text-sm">fastify</p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li className="flex flex-col gap-4">
+                                            {/* Back-end */}
+                                            <p className="font-bold text-base">Other</p>
+                                            <ul className="flex flex-col gap-2">
+                                                <li>
+                                                    <p className="font-normal text-sm">git & github</p>
+                                                </li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </div>
+                                {/* Card section */}
+                                <div className="h-fit w-full rounded-lg py-2 px-4 box-border backdrop-blur-md dark:bg-white/10 bg-[#D5EFFF] border border-gray-50/20">
+                                    <ul className="flex flex-row items-center justify-between">
+                                        <li className="flex flex-col items-center justify-center gap-1">
+                                            <p className="font-bold dark:text-portfolio-blue-dark text-portfolio-blue-light text-2xl">3+</p>
+                                            <p className="font-medium text-white text-base">Years exp</p>
+                                        </li>
+                                        <li className="flex flex-col items-center justify-center gap-1">
+                                            <p className="font-bold dark:text-portfolio-blue-dark text-portfolio-blue-light text-2xl">7+</p>
+                                            <p className="font-medium text-white text-base">Missions finished</p>
+                                        </li>
+                                        <li className="flex flex-col items-center justify-center gap-1">
+                                            <p className="font-bold dark:text-portfolio-blue-dark text-portfolio-blue-light text-2xl">3+</p>
+                                            <p className="font-medium text-white text-base">Years exp</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="absolute size-[186px] left-[-150px] bottom-0 opacity-[0.9] bg-blue-400 size-[356px] mix-blend-soft-light blur-[150px] rounded-full"></div>
                             </div>
-                            {/* TEXT */}
-                            <div className="w-full flex flex-col items-start justify-start">
+                            {/* RIGHT PART */}
+                            <div className="w-full flex flex-col items-start justify-start gap-6">
                                 <p className="text-base font-normal">I grew up in Normandy, where I pursued business studies and obtained a Bachelor's degree. During my studies, I started coding websites in my spare time, which quickly became a passion. After graduating, I decided to follow what I truly love and enrolled in the "Le Wagon" bootcamp in Paris, where I perfected my development skills.</p>
-                                <p className="text-base mt-2 font-normal">For the past three years, I've been based in Paris and have been making a living as a developer. I currently collaborate with the talented team at the FORKEYS agency, where I continue to grow and evolve in my craft.</p>
+                                <p className="text-base font-normal">For the past three years, I've been based in Paris and have been making a living as a developer. I currently collaborate with the talented team at the FORKEYS agency, where I continue to grow and evolve in my craft.</p>
                             </div>
                         </div>
                     </div>
+                    {/* WORKS SECTION */}
                     <div className="h-[120px] w-full">
-                        <div className="flex items-cente justify-start">
+                        <div className="flex items-center justify-start">
                             <h1 className="text-2xl font-bold">Works</h1>
                         </div>
                     </div>
+                    {/* POSTS SECTION */}
                     <div className="h-fit w-full mb-4">
                         <div className="flex flex-col items-cente justify-start">
                             <div>
