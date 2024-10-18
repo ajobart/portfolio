@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Image from '../../atom/image/image';
 import { useNavigate } from 'react-router-dom';
 
-interface CardBlogProps {
+interface CardWorkProps {
     // Slug of the card
     slug?: string;
 
@@ -16,7 +16,7 @@ interface CardBlogProps {
     image: string;
 }
 
-const CardWork: FC<CardBlogProps> = ({ slug = '', title = '', description = '', image = '' }) => {
+const CardWork: FC<CardWorkProps> = ({ slug = '', title = '', description = '', image = '' }) => {
 
     // Navigate
     const navigate = useNavigate();
@@ -44,7 +44,7 @@ const CardWork: FC<CardBlogProps> = ({ slug = '', title = '', description = '', 
         <>
             {/* Card container */}
             {/* bg-[#222] bg-[#202023] */}
-            <div className='cursor-pointer rounded-[12px] w-full h-full bg-[#363C46]/40 hover:bg-[#262626] transition ease-in-out border border-test/40' onClick={handleNavigate}>
+            <div className='cursor-pointer rounded-[12px] w-full h-full bg-[#363C46]/40 hover:bg-[#363C46]/60 hover:shadow-md hover:shadow-portfolio-blue-dark/20 transition ease-in-out border border-test/40' onClick={handleNavigate}>
                 <div className='relative flex flex-col h-full p-3 box-border'>
                     {/* Image container */}
                     <div className='rounded-[12px] overflow-hidden w-full min-h-[184px] h-[184px] overflow-hidden'>
@@ -79,7 +79,7 @@ const CardWork: FC<CardBlogProps> = ({ slug = '', title = '', description = '', 
                                     </span>
                                 </li>
                             </ul>
-                            <button className='relative flex items-center justify-center font-normal text-[#9ca3af] text-xs'>
+                            <button className='relative flex items-center justify-center font-normal text-[#71B8FF] text-xs'>
                                 View more
                                 <Image path='/icons/right-chevron-light.svg' className='abosulte right-0 top-1/2 translate-x-1/2 size-2.5' />
                             </button>

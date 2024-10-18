@@ -51,6 +51,8 @@ export default {
         'portfolio-blue-dark': '#0090FF',
         'portfolio-blue-dark-hover': '#0D74CE',
         'table-of-content': '#F0F1F3',
+        // Set opacity to 0.1 i use 0.6 for test
+        'work-card-header': 'rgba(31, 41, 55, 0.6)',
         'test': 'rgb(107, 114, 128)'
       },
       textColor: {
