@@ -37,17 +37,19 @@ export default function Home() {
     return (
         <div className={`relative w-full h-fit flex flex-col items-start justify-start ${isDarkMode ? 'dark bg-home-dark text-primary-dark' : 'bg-home-light text-primary-light'}`}>
             <Navbar />
-            <div className="grid-background mt-[64px] w-full flex flex-col px-[246px] box-border text-primary-light bg-home-light dark:bg-home-dark dark:text-primary-dark overflow-scroll">
+            <div className="relative grid-background mt-[64px] w-full flex flex-col px-[246px] box-border text-primary-light bg-home-light dark:bg-home-dark dark:text-primary-dark overflow-scroll">
+                    {/* Ellipsis */}
+                    <div className="absolute right-[-180px] mix-blend-hard-light top-0 opacity-[0.9] bg-[#4d9beb] size-[356px] blur-[180px] rounded-full"></div>
                 <div className="w-full h-full">
                     {/* SECTION HEROBANNER */}
                     <div className="h-[calc(100vh-64px)] w-full flex items-center justify-between">
                         {/* LEFT PART TEXT */}
                         <div className="h-full w-full flex flex-col items-start justify-center">
                             <div className="flex items-end gap-2">
-                                <h1 className="text-4xl font-bold">Hi,</h1>
-                                <h1 className="text-5xl font-bold animate-wave">👋🏻</h1>
+                                <h1 className="text-6xl font-bold">Hi,</h1>
+                                <h1 className="text-7xl font-bold animate-wave">👋🏻</h1>
                             </div>
-                            <h1 className="text-4xl mt-2 font-bold">I'm Alexis Jobart a french fullstack developer.</h1>
+                            <h1 className="text-5xl mt-2 font-bold">I'm Alexis Jobart a french fullstack developer.</h1>
                             <p className="text-m mt-2 font-normal">Love keep learning, clean design and create things.</p>
                             <ul className="flex gap-2 mt-4">
                                 <li>
@@ -71,12 +73,12 @@ export default function Home() {
                             </ul>
                         </div>
                         {/* RIGHT PART MEMOJI */}
-                        <div className="h-full w-full flex items-center justify-center">
-                            <div className="relative flex items-center justify-center h-full w-full">
-                                <div className="absolute z-[40] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-fit">
-                                    <Image path="/images/alexis-memoji.png" alt="hand" className="size-[260px]" />
+                        <div className="h-full w-[350px] flex items-center justify-center">
+                            <div className="relative flex items-center justify-center h-full w-[350px]">
+                                <div className="absolute z-[40] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-fit w-full">
+                                    <Image path="/images/memoji-wink.png" alt="hand" className="size-[350px]" />
                                 </div>
-                                <div className="dark:herobanner-glow-dark herobanner-glow-light z-[2] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                <div className=" z-[2] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                 </div>
                             </div>
                         </div>
@@ -98,11 +100,11 @@ export default function Home() {
                             {/* LEFT PART */}
                             <div className="relative w-full flex flex-col gap-4">
                                 {/* Skills section */}
-                                <div className="flex flex-col gap-8 rounded-lg py-2 px-4 box-border backdrop-blur-md dark:bg-white/10 bg-white/10 border border-gray-50/20">
+                                <div className="flex flex-col gap-8 rounded-lg py-2 px-4 box-border backdrop-blur-md dark:bg-[#363C46]/40 bg-white/10 border border-gray-50/20">
                                     {/* Skills header */}
                                     <div className="flex flex-row gap-2 items-center justify-center">
                                         <p className="w-fit font-bold text-lg">Skills</p>
-                                        <div className="w-full h-[2px] bg-portfolio-blue-light dark:portfolio-blue-dark"></div>
+                                        <div className="w-full rounded-md h-[2px] bg-portfolio-blue-light dark:bg-portfolio-blue-dark/60"></div>
                                     </div>
                                     {/* Skills list */}
                                     <ul className="flex items-start justify-between gap-4">
@@ -164,7 +166,7 @@ export default function Home() {
                                     </ul>
                                 </div>
                                 {/* Card section */}
-                                <div className="h-fit w-full rounded-lg py-2 px-4 box-border backdrop-blur-md dark:bg-white/10 bg-[#D5EFFF] border border-gray-50/20">
+                                <div className="h-fit w-full rounded-lg py-2 px-4 box-border backdrop-blur-md dark:bg-[#363C46]/40 bg-[#D5EFFF] border border-gray-50/20">
                                     <ul className="flex flex-row items-center justify-between">
                                         <li className="flex flex-col items-center justify-center gap-1">
                                             <p className="font-bold dark:text-portfolio-blue-dark text-portfolio-blue-light text-2xl">3+</p>
@@ -180,7 +182,8 @@ export default function Home() {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="absolute size-[186px] left-[-150px] bottom-0 opacity-[0.9] bg-blue-400 size-[356px] mix-blend-soft-light blur-[150px] rounded-full"></div>
+                                {/* Ellipsis */}
+                                <div className="absolute left-[-380px] bottom-[] opacity-[0.9] bg-blue-400 size-[356px] mix-blend-soft-light blur-[150px] rounded-full"></div>
                             </div>
                             {/* RIGHT PART */}
                             <div className="w-full flex flex-col items-start justify-start gap-6">

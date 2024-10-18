@@ -38,7 +38,7 @@ export default {
       backgroundImage: {
         //'grid-darkmode': "url('/icons/grid-light.svg')",
         //'grid-lightmode': "url('/icons/grid-dark.svg')",
-        'grid-darkmode': "linear-gradient(0deg, rgba(32,32,35,1) 58%, rgba(0,212,255,0) 100%), url('/icons/grid-light.svg')",
+        'grid-darkmode': "linear-gradient(0deg, rgba(32,32,35,1) 65%, rgba(0,212,255,0) 100%), url('/icons/grid-light.svg')",
         'grid-lightmode': "linear-gradient(0deg, rgba(244,244,245,1) 58%, rgba(0,212,255,0) 100%), url('/icons/grid-dark.svg')",
       },
       colors: {
