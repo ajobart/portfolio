@@ -193,9 +193,15 @@ export default function Home() {
                         </div>
                     </div>
                     {/* WORKS SECTION */}
-                    <div className="h-[120px] w-full">
+                    <div className="h-fit w-full">
                         <div className="flex items-center justify-start">
-                            <h1 className="text-2xl font-bold">Works</h1>
+                            <div>
+                                <h1 className="text-2xl font-bold">Works</h1>
+                            </div>
+                            <ul className="list-none flex flex-row items-center justify-start w-full mt-6 flex-wrap gap-[78px] flex-list">
+                                <li className="w-[288px] h-[340px]">
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     {/* POSTS SECTION */}
