@@ -51,6 +51,7 @@ export default {
         'portfolio-blue-dark': '#0090FF',
         'portfolio-blue-dark-hover': '#0D74CE',
         'table-of-content': '#F0F1F3',
+        'test': 'rgb(107, 114, 128)'
       },
       textColor: {
         primary: {

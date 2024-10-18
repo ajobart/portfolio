@@ -6,6 +6,7 @@ import { CmsService } from "../../../services/cms.service";
 import { CardBlogItem } from "../../types/cardBlog.types";
 import Image from "../../atom/image/image";
 import Footer from "../../molecules/footer/footer";
+import CardWork from "../../molecules/card-work/card-work";
 
 export default function Home() {
 
@@ -194,19 +195,23 @@ export default function Home() {
                     </div>
                     {/* WORKS SECTION */}
                     <div className="h-fit w-full">
-                        <div className="flex items-center justify-start">
+                        <div className="flex flex-col items-start justify-start mb-20 gap-8">
                             <div>
                                 <h1 className="text-2xl font-bold">Works</h1>
                             </div>
-                            <ul className="list-none flex flex-row items-center justify-start w-full mt-6 flex-wrap gap-[78px] flex-list">
-                                <li className="w-[288px] h-[340px]">
+                            <ul className="list-none flex flex-row items-center justify-start w-full flex-wrap gap-[78px] flex-list">
+                                <li className="w-[400px] h-fit">
+                                    <CardWork title="Test" image="/images/comsider-panneaux.png" description="Velit pariatur non ullamco. Nostrud anim laborum nulla ad sunt in cupidatat amet ad labore esse reprehenderit reprehenderit. Occaecat dolore irure adipisicing sint. Lorem irure esse reprehenderit proident magna do amet ipsum labore enim laborum. Ad enim cillum ullamco nulla aliqua nulla eiusmod labore amet fugiat sint sunt magna non officia. Culpa magna elit cupidatat irure veniam tempor velit et incididunt irure ipsum amet deserunt."></CardWork>
+                                </li>
+                                <li className="w-[400px] h-fit">
+                                    <CardWork title="Test" image="/images/comsider-panneaux.png" description="Velit pariatur non ullamco. Nostrud anim laborum nulla ad sunt in cupidatat amet ad labore esse reprehenderit reprehenderit. Occaecat dolore irure adipisicing sint. Lorem irure esse reprehenderit proident magna do amet ipsum labore enim laborum. Ad enim cillum ullamco nulla aliqua nulla eiusmod labore amet fugiat sint sunt magna non officia. Culpa magna elit cupidatat irure veniam tempor velit et incididunt irure ipsum amet deserunt."></CardWork>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     {/* POSTS SECTION */}
                     <div className="h-fit w-full mb-4">
-                        <div className="flex flex-col items-cente justify-start">
+                        <div className="flex flex-col items-start justify-start">
                             <div>
                                 <h1 className="text-2xl font-bold">Posts</h1>
                             </div>
