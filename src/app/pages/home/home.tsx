@@ -200,11 +200,11 @@ export default function Home() {
                                 <h1 className="text-2xl font-bold">Works</h1>
                             </div>
                             <ul className="list-none flex flex-row items-center justify-start w-full flex-wrap gap-[78px] flex-list">
-                                <li className="w-[400px] h-fit">
+                                <li className="w-[400px] h-[358px]">
                                     <CardWork title="Test" image="/images/comsider-panneaux.png" description="Velit pariatur non ullamco. Nostrud anim laborum nulla ad sunt in cupidatat amet ad labore esse reprehenderit reprehenderit. Occaecat dolore irure adipisicing sint. Lorem irure esse reprehenderit proident magna do amet ipsum labore enim laborum. Ad enim cillum ullamco nulla aliqua nulla eiusmod labore amet fugiat sint sunt magna non officia. Culpa magna elit cupidatat irure veniam tempor velit et incididunt irure ipsum amet deserunt."></CardWork>
                                 </li>
-                                <li className="w-[400px] h-fit">
-                                    <CardWork title="Test" image="/images/comsider-panneaux.png" description="Velit pariatur non ullamco. Nostrud anim laborum nulla ad sunt in cupidatat amet ad labore esse reprehenderit reprehenderit. Occaecat dolore irure adipisicing sint. Lorem irure esse reprehenderit proident magna do amet ipsum labore enim laborum. Ad enim cillum ullamco nulla aliqua nulla eiusmod labore amet fugiat sint sunt magna non officia. Culpa magna elit cupidatat irure veniam tempor velit et incididunt irure ipsum amet deserunt."></CardWork>
+                                <li className="w-[400px] h-[358px]">
+                                    <CardWork title="Test" image="/images/comsider-panneaux.png" description="Velit pariatur non ullamco. Nostrud anim laborum nulla ad sunt."></CardWork>
                                 </li>
                             </ul>
                         </div>
