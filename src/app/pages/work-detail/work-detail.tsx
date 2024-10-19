@@ -12,8 +12,13 @@ import Footer from "../../molecules/footer/footer";
 
 export default function WorkDetail() {
 
+    // Ref of article
     const workRef = useRef<HTMLDivElement | null>(null);
+
+    // Ref of footer
     const footerRef = useRef<HTMLDivElement | null>(null);
+
+    // State for article height
     const [workHeight, setWorkHeight] = useState(0);
 
     // Theme
@@ -53,11 +58,13 @@ export default function WorkDetail() {
                 setShowScrollTopButton(true);
                 setIsVisible(true);
 
-                // Si le bouton approche le footer, change sa position
+                // If the button approaches the footer, change its position
                 if (scrollTop + windowHeight >= footerTop - 20) {
-                    setButtonPosition("bottom-[80px]"); // Le place au-dessus du footer
+                    // Place it above the footer
+                    setButtonPosition("bottom-[80px]");
                 } else {
-                    setButtonPosition("bottom-4"); // Le place en bas de l'écran
+                    // Places it at the bottom of the screen 
+                    setButtonPosition("bottom-4");
                 }
             } else {
                 setShowScrollTopButton(false);

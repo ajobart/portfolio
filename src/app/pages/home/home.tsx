@@ -101,16 +101,6 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="h-fit w-full mb-4">
-                        <div className="flex flex-col items-start justify-start">
-                            <h1 className="text-2xl font-bold">About</h1>
-                            <p className="text-base font-normal">I grew up in the Normandy region of France, where I pursued business studies and obtained a Bachelor's degree. During my studies, I started coding websites in my spare time, which quickly became a passion. After graduating, I decided to follow what I truly love and enrolled in the "Le Wagon" bootcamp in Paris, where I perfected my development skills.</p>
-                            <p className="text-base mt-2 font-normal">For the past three years, I've been based in Paris and have been making a living as a developer. I currently collaborate with the talented team at the FORKEYS agency, where I continue to grow and evolve in my craft.</p>
-                        </div>
-                        <div>
-
-                        </div>
-                    </div> */}
                     {/* SECTION ABOUT */}
                     <div className="h-fit w-full flex flex-col items-center justify-center mb-20 gap-12">
                         <h1 className="text-4xl font-bold">ABOUT</h1>
