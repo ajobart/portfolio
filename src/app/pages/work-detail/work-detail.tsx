@@ -154,91 +154,86 @@ export default function WorkDetail() {
 
     return (
         <>
-        <div className={`relative w-full min-h-screen flex flex-col ${isDarkMode ? 'dark bg-home-dark text-primary-dark' : 'bg-home-light text-primary-light'}`}>
-            <Navbar />
-            <div className="mt-[64px] w-full flex flex-col px-4 md:px-8 px-8 mx-auto max-w-4xl box-border">
-                <div className="top-4 left-0 mt-4">
-                    <a className="bg-transparent border-none flex items-center gap-2" href="/">
-                        <Image path={isDarkMode ? '/icons/left-arrow-light.svg' : '/icons/left-arrow-dark.svg'} className="size-[14px]" />
-                        Back
-                    </a>
-                </div>
-                <article className="pb-8 pt-4 w-full" ref={workRef}>
-                    <div className="mb-4 flex flex-col gap-2">
-                        <h1 className="text-4xl font-bold">{work.data.title}</h1>
+            <div className={`relative w-full min-h-screen flex flex-col ${isDarkMode ? 'dark bg-home-dark text-primary-dark' : 'bg-home-light text-primary-light'}`}>
+                <Navbar />
+                <div className="mt-[64px] w-full flex flex-col px-4 md:px-8 px-8 mx-auto max-w-4xl box-border">
+                    <div className="top-4 left-0 mt-4">
+                        <a className="bg-transparent border-none flex items-center gap-2" href="/">
+                            <Image path={isDarkMode ? '/icons/left-arrow-light.svg' : '/icons/left-arrow-dark.svg'} className="size-[14px]" />
+                            Back
+                        </a>
                     </div>
-                    {/* CARD HEADER */}
-                    <div className="mb-4 flex flex-row items-center justify-between border border-test bg-work-card-header w-full h-[213px] rounded-lg p-5 box-border">
-                        {/* LEFT PART */}
-                        <div className="rounded-lg h-[171.38px] w-[280px] p-1 border-2 border-[#292B33] box-border bg-[#10121B]">
-                            <Image path={work.data.image.url} alt={work.data.image.alt} className="w-[280px] h-full object-cover rounded-lg" />
+                    <article className="pb-8 pt-4 w-full" ref={workRef}>
+                        <div className="mb-4 flex flex-col gap-2">
+                            <h1 className="text-4xl font-bold">{work.data.title}</h1>
                         </div>
-                        {/* MIDDLE LIST */}
-                        <ul className="h-full w-fit flex flex-col gap-6">
-                            <li>
-                                <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Role</p>
-                                    <p className="text-[13px] text-gray-400">{work.data.role}</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Tech</p>
-                                    <p className="text-[13px] text-gray-400">{work.data.tech}</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Location</p>
-                                    <p className="text-[13px] text-gray-400">Front end</p>
-                                </div>
-                            </li>
-                        </ul>
-                        {/* RIGHT LIST */}
-                        <ul className="h-full w-fit flex flex-col gap-6">
-                            <li>
-                                <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Period</p>
-                                    <p className="text-[13px] text-gray-400">Front end & Back end</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Cool links</p>
-                                    <p className="text-[13px] text-gray-400">Front end</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Company website</p>
-                                    <p className="text-[13px] text-gray-400">Front end</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <CmsHtmlRenderer
-                        data={work.data.body}
-                        headline={work.data.headline}
-                        colorTitle={isDarkMode ? 'light' : 'dark'}
-                    />
-                    {isVisible && (
-                        <div
-                            className={`text-sm font-regular p-4 box-border h-8 w-fit backdrop-blur-md dark:bg-white/10 bg-black/10 dark:hover:bg-white/30 hover:bg-gray-500/30 ease-in-out duration-500 border border-gray-50/20 rounded-full flex items-center justify-center cursor-pointer fixed ${buttonPosition} left-1/2 -translate-x-1/2 
+                        {/* CARD HEADER */}
+                        <div className="mb-4 flex flex-row items-center justify-between border border-test bg-[#363C46]/40 w-full h-[213px] rounded-lg p-5 box-border">
+                            {/* LEFT PART */}
+                            <div className="rounded-lg h-[171.38px] w-[280px] p-1 border border-test box-border bg-[#202023]">
+                                <Image path={work.data.image.url} alt={work.data.image.alt} className="w-[280px] h-full object-cover rounded-lg" />
+                            </div>
+                            {/* MIDDLE LIST */}
+                            <ul className="h-full w-fit flex flex-col gap-6">
+                                <li>
+                                    <div>
+                                        <p className="text-xs font-regular text-gray-500 mb-1">Role</p>
+                                        <p className="text-[13px] text-gray-400">{work.data.role}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p className="text-xs font-regular text-gray-500 mb-1">Tech</p>
+                                        <p className="text-[13px] text-gray-400">{work.data.tech}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p className="text-xs font-regular text-gray-500 mb-1">{work.data.link_title}</p>
+                                        <a href={work.data.link_url?.url} target="_blank" className="dark blue-link text-[13px] text-gray-400">{work.data.link_url?.url}</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            {/* RIGHT LIST */}
+                            <ul className="h-full w-fit flex flex-col gap-6">
+                                <li>
+                                    <div>
+                                        <p className="text-xs font-regular text-gray-500 mb-1">Tasks</p>
+                                        <ul></ul>
+                                        <ul className="text-[13px] text-gray-400">
+                                            {work.data.tasks_list?.map((task, index) => (
+                                                <li key={index}>
+                                                    <p className="text-[13px] text-gray-400">• {task.task}</p>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <CmsHtmlRenderer
+                            data={work.data.body}
+                            headline={work.data.headline}
+                            colorTitle={isDarkMode ? 'light' : 'dark'}
+                        />
+                        {isVisible && (
+                            <div
+                                className={`text-sm font-regular p-4 box-border h-8 w-fit backdrop-blur-md dark:bg-white/10 bg-black/10 dark:hover:bg-white/30 hover:bg-gray-500/30 ease-in-out duration-500 border border-gray-50/20 rounded-full flex items-center justify-center cursor-pointer fixed ${buttonPosition} left-1/2 -translate-x-1/2 
                             ${showScrollTopButton ? 'animate-slideUp' : 'animate-slideDown'}`}
-                            onClick={() => scrollToTop()}
-                        >
-                            Go top
+                                onClick={() => scrollToTop()}
+                            >
+                                Go top
+                            </div>
+                        )}
+                    </article>
+                    <div className="absolute top-[215px] right-[65px]" style={{ height: `${workHeight}px` }}>
+                        <div className="sticky top-[78px] self-start">
+                            <TableOfContent body={work.data.body} />
                         </div>
-                    )}
-                </article>
-                <div className="absolute top-[215px] right-[65px]" style={{ height: `${workHeight}px` }}>
-                    <div className="sticky top-[78px] self-start">
-                        <TableOfContent body={work.data.body} />
                     </div>
                 </div>
             </div>
-        </div>
-        <Footer ref={footerRef}/>
-       </>
+            <Footer ref={footerRef} />
+        </>
     );
 }

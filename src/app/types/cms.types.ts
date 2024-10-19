@@ -11,6 +11,10 @@ export interface CmsArrayType {
   row: string
 }
 
+export interface TasksList {
+  task: string;
+}
+
 export interface CmsDataType {
   id: string;
   type: string;
@@ -82,6 +86,12 @@ export interface CmsWorkType {
     summary: string;
     role: string;
     tech: string;
+    link_title: string;
+    link_url: {
+      link_type: string;
+      url?: string;
+    };
+    tasks_list: Array<TasksList>;
     metadata_title: string;
     metadata_description: string;
     video_youtube: string;
