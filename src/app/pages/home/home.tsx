@@ -4,6 +4,7 @@ import { useTheme } from "../../context/theme/themeContext";
 import CardBlog from "../../molecules/card-blog/card-blog";
 import { CmsService } from "../../../services/cms.service";
 import { CardBlogItem } from "../../types/cardBlog.types";
+import { CardWorkItem } from "../../types/cardWork.types";
 import Image from "../../atom/image/image";
 import Footer from "../../molecules/footer/footer";
 import CardWork from "../../molecules/card-work/card-work";
@@ -14,17 +15,21 @@ export default function Home() {
     const { isDarkMode } = useTheme();
 
     // State to cards blog list
-    const [cardsBlogList, setCardsBlogList] = useState<CardBlogItem[]>([])
+    const [cardsBlogList, setCardsBlogList] = useState<CardBlogItem[]>([]);
+
+    // State to cards work list
+    const [cardsWorkList, setCardsWorkList] = useState<CardWorkItem[]>([]);
 
     /**
-     * Effect to get cards blog list
+     * Effect to get cards blog and article list
      */
     useEffect(() => {
         void getCardsBlogData().then(r => r);
+        void getCardsWorkData().then(r => r);
     }, []);
 
     /**
-     * Function to get mock data for cardBlog list
+     * Function to get data for cardBlog list
      */
     async function getCardsBlogData() {
         try {
@@ -32,6 +37,18 @@ export default function Home() {
             setCardsBlogList(data);
         } catch (error) {
             console.error('Error fetching card blog data:', error);
+        }
+    }
+
+    /**
+     * Function to get data for cardWork list
+     */
+    async function getCardsWorkData() {
+        try {
+            const data = await CmsService.getCardWorkData();
+            setCardsWorkList(data);
+        } catch (error) {
+            console.error('Error fetching card work data :', error);
         }
     }
 
@@ -200,12 +217,11 @@ export default function Home() {
                                 <h1 className="text-2xl font-bold">Works</h1>
                             </div>
                             <ul className="list-none flex flex-row items-center justify-start w-full flex-wrap gap-[78px] flex-list">
-                                <li className="w-[400px] h-[358px]">
-                                    <CardWork title="Test" image="/images/comsider-panneaux.png" description="Velit pariatur non ullamco. Nostrud anim laborum nulla ad sunt in cupidatat amet ad labore esse reprehenderit reprehenderit. Occaecat dolore irure adipisicing sint. Lorem irure esse reprehenderit proident magna do amet ipsum labore enim laborum. Ad enim cillum ullamco nulla aliqua nulla eiusmod labore amet fugiat sint sunt magna non officia. Culpa magna elit cupidatat irure veniam tempor velit et incididunt irure ipsum amet deserunt."></CardWork>
-                                </li>
-                                <li className="w-[400px] h-[358px]">
-                                    <CardWork title="Test" image="/images/comsider-panneaux.png" description="Velit pariatur non ullamco. Nostrud anim laborum nulla ad sunt."></CardWork>
-                                </li>
+                                {cardsWorkList.map((item, index) => (
+                                    <li className="w-[400px] h-[358px]" key={index}>
+                                        <CardWork slug={item.slug} title={item.title} badges_list={item.badges_list} image={item.image} description={item.summary}></CardWork>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>

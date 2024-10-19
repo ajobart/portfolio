@@ -1,20 +1,20 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { CmsService } from "../../../services/cms.service";
-import { CmsArticleType } from "../../types/cms.types";
+import { CmsWorkType } from "../../types/cms.types";
 import Navbar from "../../molecules/navbar/navbar";
 import { useTheme } from "../../context/theme/themeContext";
 import Image from "../../atom/image/image";
 import CmsHtmlRenderer from "../../atom/cms-html-renderer/cms-html-renderer";
-import { formatDate, scrollToTop } from "../../../services/helper.service";
+import { scrollToTop } from "../../../services/helper.service";
 import TableOfContent from "../../molecules/table-of-content/table-of-content";
 import Footer from "../../molecules/footer/footer";
 
 export default function WorkDetail() {
 
-    const articleRef = useRef<HTMLDivElement | null>(null);
+    const workRef = useRef<HTMLDivElement | null>(null);
     const footerRef = useRef<HTMLDivElement | null>(null);
-    const [articleHeight, setArticleHeight] = useState(0);
+    const [workHeight, setWorkHeight] = useState(0);
 
     // Theme
     const { isDarkMode } = useTheme();
@@ -23,7 +23,7 @@ export default function WorkDetail() {
     const { slug } = useParams<{ slug: string }>();
 
     // States
-    const [article, setArticle] = useState<CmsArticleType | null>(null);
+    const [work, setWork] = useState<CmsWorkType | null>(null);
 
     // Loading
     const [loading, setLoading] = useState(true);
@@ -69,14 +69,14 @@ export default function WorkDetail() {
     }, []);
 
     /**
-     * Effect to get the height of the article
+     * Effect to get the height of the work
      */
     useEffect(() => {
-        if (articleRef.current) {
-            // 222 is the height between the article and top of the page
-            setArticleHeight(articleRef.current.offsetHeight - 222);
+        if (workRef.current) {
+            // 222 is the height between the work and top of the page
+            setWorkHeight(workRef.current.offsetHeight - 222);
         }
-    }, [article]);
+    }, [work]);
 
     /**
      * Effect to handle visibility transition (wait for animation)
@@ -90,33 +90,33 @@ export default function WorkDetail() {
     }, [showScrollTopButton]);
 
     /**
-     * Effect to fetch the article
+     * Effect to fetch the work
      */
     useEffect(() => {
-        async function fetchArticle() {
+        async function fetchWork() {
             if (!slug) return;
 
             try {
                 setLoading(true);
-                const fetchedArticle = await CmsService.getWorkData(slug);
-                if (fetchedArticle) {
-                    setArticle(fetchedArticle);
+                const fetchedWork = await CmsService.getWorkData(slug);
+                if (fetchedWork) {
+                    setWork(fetchedWork);
                 } else {
-                    setError("Article not found");
+                    setError("Work not found");
                 }
             } catch (err) {
-                console.error("Error fetching article:", err);
-                setError("Failed to load the article. Please try again later.");
+                console.error("Error fetching work:", err);
+                setError("Failed to load the work. Please try again later.");
             } finally {
                 setLoading(false);
             }
         }
 
-        fetchArticle();
-        console.log('article :', article);
+        fetchWork();
+        console.log('work :', work);
     }, [slug]);
 
-    console.log('article 2 :', article)
+    console.log('work 2 :', work)
 
     if (error) {
         return <div>{error}</div>;
@@ -141,8 +141,8 @@ export default function WorkDetail() {
         );
     }
 
-    if (!article) {
-        return <div>Article not found</div>;
+    if (!work) {
+        return <div>Work not found</div>;
     }
 
     return (
@@ -156,38 +156,33 @@ export default function WorkDetail() {
                         Back
                     </a>
                 </div>
-                <article className="pb-8 pt-4 w-full" ref={articleRef}>
+                <article className="pb-8 pt-4 w-full" ref={workRef}>
                     <div className="mb-4 flex flex-col gap-2">
-                        <h1 className="text-4xl font-bold">{article.data.title}</h1>
-                        {/* <div className="flex flex-row">
-                            <div className="flex flex-col">
-                                <p className="text-sm font-regular dark:text-portfolio-gray">{formatDate(article.data.published_at)} • {article.data.read_time} min read</p>
-                            </div>
-                        </div> */}
+                        <h1 className="text-4xl font-bold">{work.data.title}</h1>
                     </div>
                     {/* CARD HEADER */}
                     <div className="mb-4 flex flex-row items-center justify-between border border-test bg-work-card-header w-full h-[213px] rounded-lg p-5 box-border">
                         {/* LEFT PART */}
                         <div className="rounded-lg h-[171.38px] w-[280px] p-1 border-2 border-[#292B33] box-border bg-[#10121B]">
-                            <Image path={article.data.image.url} alt={article.data.image.alt} className="w-[280px] h-full object-cover rounded-lg" />
+                            <Image path={work.data.image.url} alt={work.data.image.alt} className="w-[280px] h-full object-cover rounded-lg" />
                         </div>
                         {/* MIDDLE LIST */}
                         <ul className="h-full w-fit flex flex-col gap-6">
                             <li>
                                 <div>
                                     <p className="text-xs font-regular text-gray-500 mb-1">Role</p>
-                                    <p className="text-[13px] text-gray-400">Front end & Back end</p>
+                                    <p className="text-[13px] text-gray-400">{work.data.role}</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <p className="text-xs font-regular text-gray-500 mb-1">Tech</p>
-                                    <p className="text-[13px] text-gray-400">Front end</p>
+                                    <p className="text-[13px] text-gray-400">{work.data.tech}</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Role</p>
+                                    <p className="text-xs font-regular text-gray-500 mb-1">Location</p>
                                     <p className="text-[13px] text-gray-400">Front end</p>
                                 </div>
                             </li>
@@ -196,27 +191,27 @@ export default function WorkDetail() {
                         <ul className="h-full w-fit flex flex-col gap-6">
                             <li>
                                 <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Role</p>
+                                    <p className="text-xs font-regular text-gray-500 mb-1">Period</p>
                                     <p className="text-[13px] text-gray-400">Front end & Back end</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Role</p>
+                                    <p className="text-xs font-regular text-gray-500 mb-1">Cool links</p>
                                     <p className="text-[13px] text-gray-400">Front end</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p className="text-xs font-regular text-gray-500 mb-1">Role</p>
+                                    <p className="text-xs font-regular text-gray-500 mb-1">Company website</p>
                                     <p className="text-[13px] text-gray-400">Front end</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <CmsHtmlRenderer
-                        data={article.data.body}
-                        headline={article.data.headline}
+                        data={work.data.body}
+                        headline={work.data.headline}
                         colorTitle={isDarkMode ? 'light' : 'dark'}
                     />
                     {isVisible && (
@@ -229,9 +224,9 @@ export default function WorkDetail() {
                         </div>
                     )}
                 </article>
-                <div className="absolute top-[215px] right-[65px]" style={{ height: `${articleHeight}px` }}>
+                <div className="absolute top-[215px] right-[65px]" style={{ height: `${workHeight}px` }}>
                     <div className="sticky top-[78px] self-start">
-                        <TableOfContent body={article.data.body} />
+                        <TableOfContent body={work.data.body} />
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { client } from '../app/lib/prismic'
+import BadgesList from '../app/types/badgesList.types'
 import { CardBlogItem } from '../app/types/cardBlog.types'
 import { CardWorkItem } from '../app/types/cardWork.types'
 import { CmsArticleType } from '../app/types/cms.types'
@@ -17,13 +18,14 @@ export class CmsService {
   }
 
   static async getCardWorkData(): Promise<CardWorkItem[]> {
-    const response = await client.getAllByType('blog')
+    const response = await client.getAllByType('work')
 
     return response.map(item => ({
       slug: item.slugs[0],
       title: item.data.title as string,
       summary: item.data.summary as string,
       image: item.data.image.url as string,
+      badges_list: item.data.badges_list as Array<BadgesList>
     }))
   }
 
@@ -77,7 +79,8 @@ export class CmsService {
       data: {
         title: work.data.title,
         summary: work.data.summary,
-        read_time: work.data.read_time,
+        role: work.data.role,
+        tech: work.data.tech,
         metadata_title: work.data.metadata_title || '',
         metadata_description: work.data.metadata_description || '',
         author: work.data.author,
@@ -89,7 +92,6 @@ export class CmsService {
           dimensions: work.data.image.dimensions
         },
         body: work.data.body,
-        published_at: work.data.published_at,
         category: work.data.category,
         tags: work.tags,
         slug: work.data.slug,

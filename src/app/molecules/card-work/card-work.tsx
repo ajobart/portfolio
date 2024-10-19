@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Image from '../../atom/image/image';
 import { useNavigate } from 'react-router-dom';
+import BadgesList from '../../types/badgesList.types';
 
 interface CardWorkProps {
     // Slug of the card
@@ -14,9 +15,12 @@ interface CardWorkProps {
 
     // Image of the card
     image: string;
+
+    // Badges of the card
+   badges_list: Array<BadgesList>;
 }
 
-const CardWork: FC<CardWorkProps> = ({ slug = '', title = '', description = '', image = '' }) => {
+const CardWork: FC<CardWorkProps> = ({ slug = '', title = '', description = '', image = '', badges_list = [] }) => {
 
     // Navigate
     const navigate = useNavigate();
@@ -39,6 +43,8 @@ const CardWork: FC<CardWorkProps> = ({ slug = '', title = '', description = '', 
         }
         return description;
     }
+
+    console.log('badgelit :', badges_list);
 
     return (
         <>
@@ -63,21 +69,11 @@ const CardWork: FC<CardWorkProps> = ({ slug = '', title = '', description = '', 
                         {/* Footer */}
                         <div className='flex flex-row w-full items-end justify-between'>
                             <ul className='flex list-none mt-2 gap-1'>
-                                <li>
-                                    <span className="blue-badge">
-                                        Badge
-                                    </span>
-                                </li>
-                                <li>
-                                    <span className="blue-badge">
-                                        Badge
-                                    </span>
-                                </li>
-                                <li>
-                                    <span className="blue-badge">
-                                        Badge
-                                    </span>
-                                </li>
+                                {badges_list.map((item, index) => (
+                                    <li key={index}>
+                                        <span className='blue-badge'>{item.badge}</span>
+                                    </li>
+                                ))}
                             </ul>
                             <button className='relative flex items-center justify-center font-normal text-[#71B8FF] text-xs'>
                                 View more

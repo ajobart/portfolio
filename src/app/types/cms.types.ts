@@ -47,7 +47,6 @@ export interface CmsArticleType {
     metadata_title: string;
     metadata_description: string;
     author: Array<CmsDataType>;
-    select?: string;
     video_youtube: string;
     image: {
       url: string;
@@ -81,11 +80,10 @@ export interface CmsWorkType {
   data: {
     title: string;
     summary: string;
-    read_time: string;
+    role: string;
+    tech: string;
     metadata_title: string;
     metadata_description: string;
-    author: Array<CmsDataType>;
-    select?: string;
     video_youtube: string;
     image: {
       url: string;
@@ -101,8 +99,6 @@ export interface CmsWorkType {
       slug: string;
       type: string;
     }
-    published_at: string;
-    updated_at?: string;
     body: Array<CmsDataType>;
     headline: Array<CmsHeadlineType>;
     slug: string;
