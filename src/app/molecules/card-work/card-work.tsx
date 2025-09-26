@@ -55,12 +55,12 @@ const CardWork: FC<CardWorkProps> = ({
       {/* Card container */}
       {/* bg-[#222] bg-[#202023] */}
       <div
-        className="cursor-pointer rounded-[12px] w-full h-full bg-[#363C46]/40 hover:bg-[#363C46]/60 hover:shadow-md hover:shadow-portfolio-blue-dark/20 transition ease-in-out border border-test/40"
+        className="cursor-pointer rounded-xl w-full h-full bg-[#363C46]/40 hover:bg-[#363C46]/60 hover:shadow-md hover:shadow-portfolio-blue-dark/20 transition ease-in-out border border-test/40"
         onClick={handleNavigate}
       >
         <div className="relative flex flex-col h-full p-3 box-border">
           {/* Image container */}
-          <div className="rounded-[12px] w-full min-h-[184px] h-[184px] overflow-hidden">
+          <div className="rounded-xl w-full min-h-[184px] h-[184px] overflow-hidden">
             <Image path={image} alt={image} />
           </div>
           <div className="flex flex-col h-full items-start justify-between">

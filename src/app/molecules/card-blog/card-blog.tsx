@@ -59,7 +59,7 @@ const CardBlog: FC<CardBlogProps> = ({
         onClick={handleNavigate}
       >
         {/* Image container */}
-        <div className="rounded-[12px] w-full h-[160px] overflow-hidden">
+        <div className="rounded-xl w-full h-[160px] overflow-hidden">
           <Image path={image} alt={image} />
         </div>
         {/* Text container */}
